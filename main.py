@@ -97,23 +97,23 @@ p = 20
 times = 30
 table = np.zeros((2, 11))
 for i in range(times):
-    # x_max = 100*np.ones(d)
-    # x_min = -100*np.ones(d)
-    # optimizer = WOA(fit_func=Sphere, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 0] += optimizer.gBest_score
-    # table[1, 0] += end - start
+    x_max = 100*np.ones(d)
+    x_min = -100*np.ones(d)
+    optimizer = WOA(fit_func=Sphere, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 0] += optimizer.gBest_score
+    table[1, 0] += end - start
     
-    # x_max = 10*np.ones(d)
-    # x_min = -10*np.ones(d)
-    # optimizer = WOA(fit_func=Schwefel_P222, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 1] += optimizer.gBest_score
-    # table[1, 1] += end - start
+    x_max = 10*np.ones(d)
+    x_min = -10*np.ones(d)
+    optimizer = WOA(fit_func=Schwefel_P222, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 1] += optimizer.gBest_score
+    table[1, 1] += end - start
     
     x_max = 100*np.ones(d)
     x_min = -100*np.ones(d)
@@ -124,77 +124,77 @@ for i in range(times):
     table[0, 2] += optimizer.gBest_score
     table[1, 2] += end - start
     
-    # x_max = 10*np.ones(d)
-    # x_min = -10*np.ones(d)
-    # optimizer = WOA(fit_func=Rosenbrock, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 3] += optimizer.gBest_score
-    # table[1, 3] += end - start
+    x_max = 10*np.ones(d)
+    x_min = -10*np.ones(d)
+    optimizer = WOA(fit_func=Rosenbrock, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 3] += optimizer.gBest_score
+    table[1, 3] += end - start
     
-    # x_max = 100*np.ones(d)
-    # x_min = -100*np.ones(d)
-    # optimizer = WOA(fit_func=Step, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 4] += optimizer.gBest_score
-    # table[1, 4] += end - start
+    x_max = 100*np.ones(d)
+    x_min = -100*np.ones(d)
+    optimizer = WOA(fit_func=Step, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 4] += optimizer.gBest_score
+    table[1, 4] += end - start
     
-    # x_max = 1.28*np.ones(d)
-    # x_min = -1.28*np.ones(d)
-    # optimizer = WOA(fit_func=Quadric_Noise, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 5] += optimizer.gBest_score
-    # table[1, 5] += end - start
+    x_max = 1.28*np.ones(d)
+    x_min = -1.28*np.ones(d)
+    optimizer = WOA(fit_func=Quadric_Noise, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 5] += optimizer.gBest_score
+    table[1, 5] += end - start
     
-    # x_max = 500*np.ones(d)
-    # x_min = -500*np.ones(d)
-    # optimizer = WOA(fit_func=Schwefel, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 6] += optimizer.gBest_score
-    # table[1, 6] += end - start
+    x_max = 500*np.ones(d)
+    x_min = -500*np.ones(d)
+    optimizer = WOA(fit_func=Schwefel, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 6] += optimizer.gBest_score
+    table[1, 6] += end - start
     
-    # x_max = 5.12*np.ones(d)
-    # x_min = -5.12*np.ones(d)
-    # optimizer = WOA(fit_func=Rastrigin, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 7] += optimizer.gBest_score
-    # table[1, 7] += end - start
+    x_max = 5.12*np.ones(d)
+    x_min = -5.12*np.ones(d)
+    optimizer = WOA(fit_func=Rastrigin, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 7] += optimizer.gBest_score
+    table[1, 7] += end - start
     
-    # x_max = 5.12*np.ones(d)
-    # x_min = -5.12*np.ones(d)
-    # optimizer = WOA(fit_func=Noncontinuous_Rastrigin, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 8] += optimizer.gBest_score
-    # table[1, 8] += end - start
+    x_max = 5.12*np.ones(d)
+    x_min = -5.12*np.ones(d)
+    optimizer = WOA(fit_func=Noncontinuous_Rastrigin, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 8] += optimizer.gBest_score
+    table[1, 8] += end - start
     
-    # x_max = 32*np.ones(d)
-    # x_min = -32*np.ones(d)
-    # optimizer = WOA(fit_func=Ackley, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 9] += optimizer.gBest_score
-    # table[1, 9] += end - start
+    x_max = 32*np.ones(d)
+    x_min = -32*np.ones(d)
+    optimizer = WOA(fit_func=Ackley, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 9] += optimizer.gBest_score
+    table[1, 9] += end - start
     
-    # x_max = 600*np.ones(d)
-    # x_min = -600*np.ones(d)
-    # optimizer = WOA(fit_func=Griewank, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
-    # start = time.time()
-    # optimizer.opt()
-    # end = time.time()
-    # table[0, 10] += optimizer.gBest_score
-    # table[1, 10] += end - start
+    x_max = 600*np.ones(d)
+    x_min = -600*np.ones(d)
+    optimizer = WOA(fit_func=Griewank, num_dim=d, num_particle=p, max_iter=g, x_max=x_max, x_min=x_min)
+    start = time.time()
+    optimizer.opt()
+    end = time.time()
+    table[0, 10] += optimizer.gBest_score
+    table[1, 10] += end - start
     
 table = table / times
 table = pd.DataFrame(table)
