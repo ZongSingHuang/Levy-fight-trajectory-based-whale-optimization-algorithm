@@ -4,3 +4,4 @@ Ling, Y., Zhou, Y., &amp; Luo, Q. (2017). Lévy Flight Trajectory-Based Whale Op
 https://www.tandfonline.com/doi/abs/10.1080/02533839.2020.1771205
 
 It's different from paper, but similar
+
