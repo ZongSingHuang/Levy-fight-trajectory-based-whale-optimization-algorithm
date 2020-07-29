@@ -7,6 +7,7 @@ Created on Thu Jul 16 21:59:58 2020
 Main reference:http://www.alimirjalili.com/WOA.html
 """
 
+import math as m
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -17,9 +18,6 @@ class WOA():
         self.num_dim = num_dim
         self.num_particle = num_particle
         self.max_iter = max_iter     
-        # # for case2-1
-        # self.x_max = x_max*np.ones((self.num_particle, self.num_dim))
-        # self.x_min = x_min*np.ones((self.num_particle, self.num_dim))
         # for case2-2
         self.x_max = x_max
         self.x_min = x_min
@@ -58,22 +56,6 @@ class WOA():
                 C = 2*R2
                 # case1-1. 原作者期刊定義
                 l = np.random.uniform()*(self.l_max-self.l_min) + self.l_min
-                # # case1-2. 原作者開源碼定義
-                # l = (a2-1)*np.random.uniform() + 1
-                
-                # # case3-1. 原作者開源碼計算流程
-                # for j in range(self.num_dim):
-                #     if p<0.5:
-                #         if np.abs(A)>=1:                       
-                #             X_rand = self.X[np.random.randint(low=0, high=self.num_particle, size=1), :].ravel()
-                #             D = np.abs(C*X_rand[j] - self.X[i, j])
-                #             self.X[i, j] = self.gBest_X[j] - A*D
-                #         else:
-                #             D = np.abs(C*self.gBest_X[j] - self.X[i, j])
-                #             self.X[i, j] = self.gBest_X[j] - A*D
-                #     else:
-                #         D = np.abs(self.gBest_X[j] - self.X[i, j])
-                #         self.X[i, j] = D*np.exp(self.b*l)*np.cos(2*np.pi*l)+self.gBest_X[j]
                 
                 # case3-2. 改善速度
                 if p>0.5:
@@ -88,16 +70,10 @@ class WOA():
                         X_rand = np.diag(X_rand).copy()
                         D = np.abs(C*X_rand - self.X[i, :])
                         self.X[i, :] = self.gBest_X - A*D
-            
-            # # case2-1. 每跑完一代才更新gBest
-            # self.X[self.x_max < self.X] = self.x_max[self.x_max < self.X]
-            # self.X[self.x_min > self.X] = self.x_min[self.x_min > self.X]
-            # score = self.fit_func(self.X)
-            # if np.min(score) < self.gBest_score:
-            #     self.gBest_X = self.X[score.argmin()].copy()
-            #     self.gBest_score = score.min().copy()
                 
             # case2-2. 每跑完一條就更新一次gBest
+                u, v, z = self.Levy()
+                self.X[i, :] = self.X[i, :] + u*np.sign(np.random.uniform()-0.5)*z
                 dice = np.random.uniform()
                 if dice<self.crossover:
                     dice2 = np.random.randint(low=0, high=self.num_particle, size=1)
@@ -141,5 +117,20 @@ class WOA():
         plt.plot(self.gBest_curve, label='loss')
         plt.grid()
         plt.legend()
-        plt.show()        
+        plt.show()       
+        
+    def Levy(self):
+        beta = 3/2
+    
+        numerator = m.gamma(1 + beta) * m.sin(m.pi * beta/2)
+        denominator = m.gamma((1+beta)/2) * beta * 2**((beta-1)/2)
+        sigma = (numerator/denominator)**(1/beta);
+    
+        u = (sigma**2) * np.random.randn(1, self.num_dim) + 0
+        v = np.random.randn(1, self.num_dim)
+    
+        # z = ( u/(v**(1/beta)) )/100
+        z = u/(np.abs(v)**(1/beta))/100
+        
+        return u, v, z
             
