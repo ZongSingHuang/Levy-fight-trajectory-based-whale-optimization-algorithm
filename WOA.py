@@ -100,8 +100,9 @@ class WOA():
             # case2-2. 每跑完一條就更新一次gBest
                 dice = np.random.uniform()
                 if dice<self.crossover:
+                    dice2 = np.random.randint(low=0, high=self.num_particle, size=1)
                     weight_factor = np.random.uniform()
-                    X_rand = self.X[np.random.randint(low=0, high=self.num_particle, size=1), :].ravel()
+                    X_rand = self.X[dice2, :].ravel()
                     offspring1 = weight_factor*self.X[i] + (1-weight_factor)*X_rand
                     offspring2 = (1-weight_factor)*self.X[i] + weight_factor*X_rand
                     offspring1[self.x_max < offspring1] = self.x_max[self.x_max < offspring1]
@@ -113,9 +114,15 @@ class WOA():
                     if score1<score2:
                         self.X[i, :] = offspring1.copy()
                         score = score1.copy()
+                        
+                        if score2<self.fit_func(X_rand):
+                            self.X[dice2, :] = X_rand.copy()
                     else:
                         self.X[i, :] = offspring2.copy()
                         score = score2.copy()
+                        
+                        if score1<self.fit_func(X_rand):
+                            self.X[dice2, :] = X_rand.copy()
                 else:
                     self.X[i, self.x_max < self.X[i, :]] = self.x_max[self.x_max < self.X[i, :]]
                     self.X[i, self.x_min > self.X[i, :]] = self.x_min[self.x_min > self.X[i, :]]
