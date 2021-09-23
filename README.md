@@ -1,5 +1,7 @@
 # Improved-Whale-Optimization-Algorithm
-Ling, Y., Zhou, Y., &amp; Luo, Q. (2017). Lévy Flight Trajectory-Based Whale Optimization Algorithm for Global Optimization. IEEE Access, 5, 6168–6186. doi:10.1109/access.2017.2695498 
+Y. Ling, Y. Zhou and Q. Luo, "Lévy Flight Trajectory-Based Whale Optimization Algorithm for Global Optimization", IEEE Access, vol. 5, pp. 6168-6186, 2017.
+
+https://doi.org/10.1109/ACCESS.2017.2695498
 
 1. 重新優化了測試腳本
 
